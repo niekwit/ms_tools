@@ -27,14 +27,15 @@ control.list <- list("Pyr_"="M3",
                      "Gly_"="M2",
                      "Cys_"="M3",
                      "Glu_"="M5",
-                     "Gln_"="M4")
+                     "Gln_"="M4",
+                     "Asp_"="M4",
+                     "Ala_"="M3",
+                     "Cys_"="M3")
 
 #read corrected data
 df <- read.csv("data_corrected_4processing.csv", header = TRUE)
 
 #tidy up data frame
-df[ncol(df)] <- NULL
-df$Theory <- NULL
 df <- df[-grep("293[tT]",colnames(df))] #removes all columns with 293T controls
 
 #perform calculations for each fragment
@@ -89,8 +90,6 @@ for (i in names(control.list)){
     df.out <- rbind(df.out, df.corrected)
   }
   
-  
-  
 }
 
 #write to file
@@ -99,4 +98,6 @@ write.csv(df.out,
           quote=FALSE,
           na = ",",
           row.names=FALSE)
+
+
 
