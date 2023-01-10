@@ -28,8 +28,8 @@ else
 	#cut -d, -f1-$END 'Data(corrected).csv' > data_corrected_4processing_temp.csv
 
 	#output file with just mass isotopomer data
-	sed "1,${LINE_NUMBER}d" 'data_corrected_4processing_temp.csv' | grep -v '^,*$' > data_corrected_4processing.csv
-	rm 'data_corrected_4processing_temp.csv'
+	sed "1,${LINE_NUMBER}d" 'Data(corrected).csv' | grep -v '^,*$' > data_corrected_4processing.csv
+	#rm 'data_corrected_4processing_temp.csv'
 fi
 
 
